@@ -20,3 +20,6 @@
 + RM0008 - Reference Manual for STM32F103 microcontroller
 + PM0056 - Cortex M3 Programming Manual 
 + Datasheet (for architecture of F103)
+
+
+![alt text](PinDiagram.gif "Title")
