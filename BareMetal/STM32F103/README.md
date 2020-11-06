@@ -16,6 +16,7 @@
 + 8MHz clock for HSE\LSE
 + 37 GPIO Pins breakout 
 
-### References
-+ RM0085 - Reference Manual for bare-metal programming
-+ PM0087 - Programming Manual for Assembly 
+### Important References
++ RM0008 - Reference Manual for STM32F103 microcontroller
++ PM0056 - Cortex M3 Programming Manual 
++ Datasheet (for architecture of F103)
