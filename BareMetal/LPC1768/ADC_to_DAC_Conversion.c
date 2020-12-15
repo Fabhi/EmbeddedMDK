@@ -28,7 +28,7 @@ void ADCInit(void){
 
 void ADC_IRQHandler(void){
     ADC_data = LPC_ADC->ADGDR //Global Done flag is cleared automcatically by reading the ADGDR register
-    ADC_data >>=4; //Shift result left by 4 bits since data = ADDGDR[15:4]
+    ADC_data >>=4; //Shift result left by 4 bits since data = ADGDR[15:4]
     ADC_data &=0xFFF; //Clear the remaining bits
     DAC_data = ADC_data>>2;
     }
