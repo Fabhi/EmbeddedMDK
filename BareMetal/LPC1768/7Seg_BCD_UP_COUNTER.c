@@ -56,7 +56,7 @@ void refresh(void){
 
 // Not checked
 void display(int value, int displayNumber){
-    LPC_GPIO1->FIOPIN = 1 << (displayNumber + 23 - 1); //TODO : Check if its active low
+    LPC_GPIO1->FIOPIN = (displayNumber-1) << 23; //TODO : Check if its active low
     LPC_GPIO0->FIOPIN = seven_seg[value]<<4;
 }
 
