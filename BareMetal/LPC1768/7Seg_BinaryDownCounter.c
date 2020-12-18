@@ -1,8 +1,8 @@
 #include <LPC17xx.h>
 
 unsigned int seven_seg[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F};
-unsigned int rounds, i, one_second_over = 1, start;
-unsigned int value1, value2, value3, value4;
+unsigned int rounds, i, one_second_over = 0, start;
+unsigned int value1 = 1 , value2 = 1, value3 = 1, value4 = 1;
 void delay(void);
 void display(int, int);
 void refresh(void);
@@ -26,9 +26,9 @@ int main(){
             // Update value1, value2, value3, value4
             start -= 1 ;
             value1 = start & 0x1;
-            value2 = start & 0x2;
-            value3 = start & 0x3;
-            value4 = start & 0x4;
+            value2 = (start & 0x2)>>1;
+            value3 = (start & 0x4)>>2;
+            value4 = (start & 0x8)>>3;
         }
         refresh();
     }
@@ -45,7 +45,7 @@ void refresh(void){
 
 // Not checked
 void display(int value, int displayNumber){
-    LPC_GPIO1->FIOPIN = displayNumber << 23 ; //TODO : Check if its active low
+    LPC_GPIO1->FIOPIN = (displayNumber-1) << 23 ; //TODO : Check if its active low
     LPC_GPIO0->FIOPIN = seven_seg[value]<<4;
 }
 

@@ -1,7 +1,7 @@
 #include <LPC17xx.h>
 
 unsigned int seven_seg[10] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F};
-unsigned int rounds, i, one_second_over = 1, start;
+unsigned int rounds, i, one_second_over = 0, start;
 unsigned int value1 = 0, value2 = 0, value3 = 0, value4 = 0;
 void delay(void);
 void display(int, int);
