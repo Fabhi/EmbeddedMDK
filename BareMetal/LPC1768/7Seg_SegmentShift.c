@@ -9,8 +9,8 @@ int main(){
     SystemCoreClockUpdate();
 
     LPC_GPIO0->FIODIR = 0xFFFFFFFF; // 7 Segment + Decoder in Output Mode
+    LPC_GPIO0->FIOMASK = 0xF<<15; //Mask Decoder so it's not modified(0 is default output of decoder)
     LPC_GPIO2->FIODIR = 1<<11; // Row 1 Output Mode
-    LPC_GPIO0->FIOMASK = 0xF<<15; //Mask Decoder so it's not modified(Decoder 0 automatically selected)
     LPC_GPIO2->FIOPIN = 1<<11; // Send Logic 1 to Row 1
 
     while(1){
